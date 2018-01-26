@@ -12,7 +12,9 @@ def echo(bot, update):
     update.effective_message.reply_text(update.effective_message.text)
 
 def error(bot, update, error):
+    """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, error)
+
 
 
 if __name__ == "__main__":
@@ -34,7 +36,7 @@ if __name__ == "__main__":
     # Add handlers
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(MessageHandler(Filters.text, echo))
-    dp.add_handler(error)
+    dp.add_error_handler(error)
 
     # Start the webhook
     updater.start_webhook(listen="0.0.0.0",
