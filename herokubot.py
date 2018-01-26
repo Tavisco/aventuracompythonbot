@@ -28,15 +28,23 @@ def piada(bot, update):
 
 
 def charada(bot, update):
+    #bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
     reqHeaders = {'Accept': 'application/json'}
     reqUrl = 'https://us-central1-kivson.cloudfunctions.net/charada-aleatoria'
     reqCharada = requests.get(reqUrl, headers=reqHeaders)
     if reqCharada.status_code != 200:
         update.message.reply_text("Ocorreu um erro ao tentar obter a charada :c")
+    else:
+        charada = reqCharada.json()
+        update.message.reply_text(charada["pergunta"])
+        update.message.reply_text(charada["resposta"])
 
-    charada = reqCharada.json()
-    update.message.reply_text(charada["pergunta"])
-    update.message.reply_text(charada["resposta"])
+
+def host(bot, update):
+    if len(sys.argv) > 1:
+        update.message.reply_text('Estou rodando no Heroku!')
+    else:
+        update.message.reply_text('Estou rodando localmente!')
 
 
 if __name__ == "__main__":
@@ -58,6 +66,7 @@ if __name__ == "__main__":
     dp.add_handler(CommandHandler('help', helpme))
     dp.add_handler(CommandHandler('piada', piada))
     dp.add_handler(CommandHandler('charada', charada))
+    dp.add_handler(CommandHandler('host', host))
 
     # Add noncommand handlers
     dp.add_handler(MessageHandler(Filters.text, echo))
