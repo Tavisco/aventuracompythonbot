@@ -1,6 +1,7 @@
 import logging
 import os
 import sys
+import requests
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
@@ -13,7 +14,7 @@ def echo(bot, update):
     update.effective_message.reply_text(update.effective_message.text)
 
 
-def help(bot, update):
+def helpme(bot, update):
     update.message.reply_text("Digite uma mensagem que eu irei repeti-la!")
 
 
@@ -26,13 +27,22 @@ def piada(bot, update):
     update.effective_message.reply_text("Sabe qual é o meu nome? Irineu. Você não sabe nem eu KKKKKKKK")
 
 
+def charada(bot, update):
+    reqHeaders = {'Accept': 'application/json'}
+    reqUrl = 'https://us-central1-kivson.cloudfunctions.net/charada-aleatoria'
+    reqCharada = requests.get(reqUrl, headers=reqHeaders)
+    if reqCharada.status_code != 200:
+        update.message.reply_text("Ocorreu um erro ao tentar obter a charada :c")
+
+    charada = reqCharada.json()
+    update.message.reply_text(charada["pergunta"])
+    update.message.reply_text(charada["resposta"])
+
+
 if __name__ == "__main__":
     # Set these variable to the appropriate values
     TOKEN = "511552531:AAHWTIk89QXtsCGyNOX7zxClY0UwO93zsVE"
     NAME = "aventuracompythonbot"
-
-    # Port is given by Heroku
-    PORT = os.environ.get('PORT')
 
     # Enable logging
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -45,8 +55,9 @@ if __name__ == "__main__":
 
     # Add command handlers
     dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(CommandHandler('help', help))
+    dp.add_handler(CommandHandler('help', helpme))
     dp.add_handler(CommandHandler('piada', piada))
+    dp.add_handler(CommandHandler('charada', charada))
 
     # Add noncommand handlers
     dp.add_handler(MessageHandler(Filters.text, echo))
@@ -56,6 +67,9 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 1:
         # Running on Heroku!
+
+        # Port is given by Heroku
+        PORT = os.environ.get('PORT')
         # Start the webhook
         print("Starting bot on Heroku...")
         updater.start_webhook(listen="0.0.0.0",
