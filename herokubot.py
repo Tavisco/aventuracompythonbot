@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
@@ -11,10 +12,18 @@ def start(bot, update):
 def echo(bot, update):
     update.effective_message.reply_text(update.effective_message.text)
 
+
+def help(bot, update):
+    update.message.reply_text("Digite uma mensagem que eu irei repeti-la!")
+
+
 def error(bot, update, error):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, error)
 
+
+def piada(bot, update):
+    update.effective_message.reply_text("Sabe qual é o meu nome? Irineu. Você não sabe nem eu KKKKKKKK")
 
 
 if __name__ == "__main__":
@@ -33,14 +42,29 @@ if __name__ == "__main__":
     # Set up the Updater
     updater = Updater(TOKEN)
     dp = updater.dispatcher
-    # Add handlers
+
+    # Add command handlers
     dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(CommandHandler('help', help))
+    dp.add_handler(CommandHandler('piada', piada))
+
+    # Add noncommand handlers
     dp.add_handler(MessageHandler(Filters.text, echo))
+
+    # Add error handler to log all errors
     dp.add_error_handler(error)
 
-    # Start the webhook
-    updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path=TOKEN)
-    updater.bot.setWebhook("https://{}.herokuapp.com/{}".format(NAME, TOKEN))
+    if len(sys.argv) > 1:
+        # Running on Heroku!
+        # Start the webhook
+        print("Starting bot on Heroku...")
+        updater.start_webhook(listen="0.0.0.0",
+                              port=int(PORT),
+                              url_path=TOKEN)
+        updater.bot.setWebhook("https://{}.herokuapp.com/{}".format(NAME, TOKEN))
+    else:
+        # Running locally
+        print("Starting bot locally...")
+        updater.start_polling()
+
     updater.idle()
