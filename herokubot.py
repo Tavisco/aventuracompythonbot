@@ -3,7 +3,8 @@ import os
 import sys
 import requests
 
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
+from telegram import ChatAction, ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
 
 
 def start(bot, update):
@@ -28,7 +29,7 @@ def piada(bot, update):
 
 
 def charada(bot, update):
-    #bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
+    bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     reqHeaders = {'Accept': 'application/json'}
     reqUrl = 'https://us-central1-kivson.cloudfunctions.net/charada-aleatoria'
     reqCharada = requests.get(reqUrl, headers=reqHeaders)
@@ -45,6 +46,53 @@ def host(bot, update):
         update.message.reply_text('Estou rodando no Heroku!')
     else:
         update.message.reply_text('Estou rodando localmente!')
+
+
+def botoes(bot, update):
+    custom_keyboard = [['top-left', 'top-right'],
+                       ['bottom-left', 'bottom-right']]
+    reply_markup = ReplyKeyboardMarkup(custom_keyboard)
+    bot.send_message(chat_id=update.message.chat_id, text='Teste de teclado', reply_markup=reply_markup)
+
+
+def no_botoes(bot, update):
+    reply_markup = ReplyKeyboardRemove()
+    bot.send_message(chat_id=update.message.chat_id, text='Removendo botoes...', reply_markup=reply_markup)
+
+
+def inline_keyboard(bot, update):
+    button_list = [
+        InlineKeyboardButton(" ", callback_data='b_0_0'),
+        InlineKeyboardButton(" ", callback_data='b_0_1'),
+        InlineKeyboardButton(" ", callback_data='b_0_2'),
+        InlineKeyboardButton(" ", callback_data='b_1_0'),
+        InlineKeyboardButton(" ", callback_data='b_1_1'),
+        InlineKeyboardButton(" ", callback_data='b_1_2'),
+        InlineKeyboardButton(" ", callback_data='b_2_1'),
+        InlineKeyboardButton(" ", callback_data='b_2_2'),
+        InlineKeyboardButton(" ", callback_data='b_2_3')
+    ]
+    reply_markup = InlineKeyboardMarkup(build_menu(button_list, n_cols=3))
+    bot.send_message(chat_id=update.message.chat_id, text="É a vez do " + update.effective_user.first_name, reply_markup=reply_markup)
+
+
+def build_menu(buttons,
+               n_cols,
+               header_buttons=None,
+               footer_buttons=None):
+    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
+    if header_buttons:
+        menu.insert(0, header_buttons)
+    if footer_buttons:
+        menu.append(footer_buttons)
+    return menu
+
+
+def tratador_inlinekb(bot, update):
+    query = update.callback_query
+
+    bot.edit_message_text(text="{} selecionou: {}".format(update.effective_user.first_name, query.data),
+                          chat_id=query.message.chat_id, message_id=query.message.message_id)
 
 
 if __name__ == "__main__":
@@ -67,6 +115,10 @@ if __name__ == "__main__":
     dp.add_handler(CommandHandler('piada', piada))
     dp.add_handler(CommandHandler('charada', charada))
     dp.add_handler(CommandHandler('host', host))
+    dp.add_handler(CommandHandler('botoes', botoes))
+    dp.add_handler(CommandHandler('noBotoes', no_botoes))
+    dp.add_handler(CommandHandler('inlinekb', inline_keyboard))
+    dp.add_handler(CallbackQueryHandler(tratador_inlinekb))
 
     # Add noncommand handlers
     dp.add_handler(MessageHandler(Filters.text, echo))
