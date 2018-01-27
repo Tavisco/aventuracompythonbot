@@ -10,4 +10,5 @@ def func(x):
 
 
 def test_answer():
-    assert func(3) == 4
+    if not func(3) == 4:
+        raise AssertionError()
