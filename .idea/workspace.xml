@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e2ff9d0-aaed-449b-ac07-00510a3ab280" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/tests/test_aventurabot.py" afterPath="$PROJECT_DIR$/tests/test_aventurabot.py" />
       <change beforePath="$PROJECT_DIR$/velha/jogo_velha.py" afterPath="$PROJECT_DIR$/velha/jogo_velha.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +19,7 @@
       <file leaf-file-name="herokubot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/herokubot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="1190">
               <caret line="78" column="86" lean-forward="false" selection-start-line="78" selection-start-column="86" selection-end-line="78" selection-end-column="86" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -28,10 +31,11 @@
       <file leaf-file-name="test_aventurabot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+            <state relative-caret-position="212">
+              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
               <folding>
-                <element signature="e#138#178#0" expanded="true" />
+                <element signature="e#53#93#0" expanded="true" />
+                <marker date="1517158719012" expanded="true" signature="0:51" ph="..." />
               </folding>
             </state>
           </provider>
@@ -60,8 +64,8 @@
       <file leaf-file-name="jogo_velha.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/velha/jogo_velha.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -100,8 +104,8 @@
         <option value="$PROJECT_DIR$/velha/marcador.py" />
         <option value="$PROJECT_DIR$/velha/jogador.py" />
         <option value="$PROJECT_DIR$/herokubot.py" />
-        <option value="$PROJECT_DIR$/tests/test_aventurabot.py" />
         <option value="$PROJECT_DIR$/velha/jogo_velha.py" />
+        <option value="$PROJECT_DIR$/tests/test_aventurabot.py" />
       </list>
     </option>
   </component>
@@ -185,7 +189,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.herokubot">
+  <component name="RunManager" selected="Python tests.Unnamed">
     <configuration name="herokubot" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -246,34 +250,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unnamed - 2018.01.28 at 01h 59m 38s.xml">
-      <configuration name="Unnamed" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unnamed - 2018.01.28 at 02h 03m 11s.xml">
-      <configuration name="Unnamed" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unnamed - 2018.01.28 at 02h 05m 30s.xml">
-      <configuration name="Unnamed" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unnamed - 2018.01.28 at 02h 07m 15s.xml">
-      <configuration name="Unnamed" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unnamed - 2018.01.28 at 02h 07m 37s.xml">
-      <configuration name="Unnamed" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unnamed - 2018.01.28 at 02h 14m 53s.xml">
-      <configuration name="Unnamed" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unnamed - 2018.01.28 at 02h 33m 50s.xml">
-      <configuration name="Unnamed" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unnamed - 2018.01.28 at 02h 37m 28s.xml">
-      <configuration name="Unnamed" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unnamed - 2018.01.28 at 02h 38m 25s.xml">
-      <configuration name="Unnamed" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unnamed - 2018.01.28 at 02h 41m 26s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 14h 46m 33s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 14h 47m 36s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 14h 49m 22s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 14h 51m 35s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 14h 52m 58s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 14h 55m 19s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 14h 57m 49s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 14h 58m 02s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 14h 58m 41s.xml">
       <configuration name="Unnamed" configurationId="tests" />
     </history-entry>
   </component>
@@ -283,7 +287,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25297618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279483" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -312,6 +316,100 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/herokubot.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="78" column="86" lean-forward="false" selection-start-line="78" selection-start-column="86" selection-end-line="78" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding>
+            <element signature="e#53#93#0" expanded="true" />
+            <marker date="1517158719012" expanded="true" signature="0:51" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/velha/jogador.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/velha/marcador.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/velha/jogo_velha.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/herokubot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="78" column="86" lean-forward="false" selection-start-line="78" selection-start-column="86" selection-end-line="78" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+          <folding>
+            <element signature="e#53#93#0" expanded="true" />
+            <marker date="1517158719012" expanded="true" signature="0:51" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/velha/marcador.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/velha/jogador.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/velha/jogo_velha.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/herokubot.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -334,7 +432,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5338">
           <caret line="328" column="0" lean-forward="false" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -342,7 +439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="328" column="0" lean-forward="false" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -357,7 +453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2856">
           <caret line="168" column="6" lean-forward="true" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -366,7 +461,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="119">
             <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -376,7 +470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -384,6 +477,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/velha/gameshandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/herokubot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="78" column="86" lean-forward="false" selection-start-line="78" selection-start-column="86" selection-end-line="78" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+          <folding>
+            <element signature="e#53#93#0" expanded="true" />
+            <marker date="1517158719012" expanded="true" signature="0:51" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/velha/jogador.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -396,46 +524,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/velha/jogador.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/velha/gameshandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/herokubot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="78" column="86" lean-forward="false" selection-start-line="78" selection-start-column="86" selection-end-line="78" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-          <folding>
-            <element signature="e#138#178#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/velha/jogo_velha.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
