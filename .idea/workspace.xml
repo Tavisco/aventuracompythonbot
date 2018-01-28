@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e2ff9d0-aaed-449b-ac07-00510a3ab280" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/aventuracompythonbot.iml" afterPath="$PROJECT_DIR$/.idea/aventuracompythonbot.iml" />
       <change beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/herokubot.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1861">
-              <caret line="129" column="41" lean-forward="true" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
+              <caret line="129" column="41" lean-forward="false" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -30,8 +30,8 @@
       <file leaf-file-name="test_aventurabot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="116" column="31" lean-forward="true" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
+            <state relative-caret-position="109">
+              <caret line="104" column="30" lean-forward="false" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
               <folding>
                 <element signature="e#53#93#0" expanded="true" />
                 <marker date="1517164061982" expanded="true" signature="0:51" ph="..." />
@@ -40,24 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="85">
-                <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+            <state relative-caret-position="195">
+              <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -77,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/velha/jogo_velha.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="92" column="65" lean-forward="true" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
+              <caret line="92" column="65" lean-forward="false" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -177,7 +164,15 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="aventuracompythonbot" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="aventuracompythonbot" />
+      </console-settings>
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -221,7 +216,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="aventuracompythonbot" />
       <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;--cov\u003d.&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
@@ -252,18 +247,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PyTest - 2018.01.28 at 16h 16m 04s.xml">
-      <configuration name="PyTest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="PyTest - 2018.01.28 at 16h 16m 40s.xml">
-      <configuration name="PyTest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="PyTest - 2018.01.28 at 16h 19m 18s.xml">
-      <configuration name="PyTest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="PyTest - 2018.01.28 at 16h 20m 49s.xml">
-      <configuration name="PyTest" configurationId="tests" />
-    </history-entry>
     <history-entry file="PyTest - 2018.01.28 at 16h 22m 14s.xml">
       <configuration name="PyTest" configurationId="tests" />
     </history-entry>
@@ -282,6 +265,18 @@
     <history-entry file="PyTest - 2018.01.28 at 16h 27m 43s.xml">
       <configuration name="PyTest" configurationId="tests" />
     </history-entry>
+    <history-entry file="PyTest - 2018.01.28 at 17h 46m 59s.xml">
+      <configuration name="PyTest" configurationId="tests" />
+    </history-entry>
+    <history-entry file="PyTest - 2018.01.28 at 17h 47m 46s.xml">
+      <configuration name="PyTest" configurationId="tests" />
+    </history-entry>
+    <history-entry file="PyTest - 2018.01.28 at 17h 50m 23s.xml">
+      <configuration name="PyTest" configurationId="tests" />
+    </history-entry>
+    <history-entry file="PyTest - 2018.01.28 at 17h 55m 58s.xml">
+      <configuration name="PyTest" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1365" y="0" width="1368" height="741" extended-state="6" />
@@ -292,7 +287,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279483" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -477,17 +472,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/herokubot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1861">
-          <caret line="129" column="41" lean-forward="true" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
+          <caret line="129" column="41" lean-forward="false" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -521,7 +509,7 @@
     <entry file="file://$PROJECT_DIR$/velha/jogo_velha.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="92" column="65" lean-forward="true" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
+          <caret line="92" column="65" lean-forward="false" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -536,21 +524,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="116" column="31" lean-forward="true" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
-          <folding>
-            <element signature="e#53#93#0" expanded="true" />
-            <marker date="1517164061982" expanded="true" signature="0:51" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        <state relative-caret-position="34">
+          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -563,6 +540,25 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="104" column="30" lean-forward="false" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+          <folding>
+            <element signature="e#53#93#0" expanded="true" />
+            <marker date="1517164061982" expanded="true" signature="0:51" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

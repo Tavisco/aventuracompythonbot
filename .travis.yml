@@ -18,7 +18,7 @@ install:
 # command to run the tests
 script:
 - python -m compileall ./ #Using this to do a Syntax Check
-- python -m pytest tests/
+- python -m pytest --cov=. tests/
 
 # Do the cover scan
 after_success:
