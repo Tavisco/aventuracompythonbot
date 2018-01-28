@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e2ff9d0-aaed-449b-ac07-00510a3ab280" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/herokubot.py" afterPath="$PROJECT_DIR$/herokubot.py" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
       <change beforePath="$PROJECT_DIR$/tests/test_aventurabot.py" afterPath="$PROJECT_DIR$/tests/test_aventurabot.py" />
-      <change beforePath="$PROJECT_DIR$/velha/velha.py" afterPath="$PROJECT_DIR$/velha/jogo_velha.py" />
+      <change beforePath="$PROJECT_DIR$/velha/jogador.py" afterPath="$PROJECT_DIR$/velha/jogador.py" />
+      <change beforePath="$PROJECT_DIR$/velha/jogo_velha.py" afterPath="$PROJECT_DIR$/velha/jogo_velha.py" />
+      <change beforePath="$PROJECT_DIR$/velha/marcador.py" afterPath="$PROJECT_DIR$/velha/marcador.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +21,8 @@
       <file leaf-file-name="herokubot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/herokubot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="112" column="81" lean-forward="true" selection-start-line="111" selection-start-column="4" selection-end-line="112" selection-end-column="81" />
+            <state relative-caret-position="240">
+              <caret line="78" column="86" lean-forward="false" selection-start-line="78" selection-start-column="86" selection-end-line="78" selection-end-column="86" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -28,21 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gameshandler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/velha/gameshandler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="test_aventurabot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="280">
+              <caret line="35" column="91" lean-forward="false" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
               <folding>
                 <element signature="e#138#178#0" expanded="true" />
               </folding>
@@ -53,8 +45,8 @@
       <file leaf-file-name="jogo_velha.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/velha/jogo_velha.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+            <state relative-caret-position="121">
+              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -65,8 +57,8 @@
       <file leaf-file-name="jogador.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/velha/jogador.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="48" lean-forward="false" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+            <state relative-caret-position="68">
+              <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -75,8 +67,8 @@
       <file leaf-file-name="marcador.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/velha/marcador.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="170">
+              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -91,6 +83,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>edit_message</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -99,15 +96,16 @@
       <list>
         <option value="$PROJECT_DIR$/procfile" />
         <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/velha/gameshandler.py" />
+        <option value="$PROJECT_DIR$/velha/velha.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/velha/marcador.py" />
         <option value="$PROJECT_DIR$/velha/jogador.py" />
-        <option value="$PROJECT_DIR$/velha/gameshandler.py" />
+        <option value="$PROJECT_DIR$/velha/jogo_velha.py" />
         <option value="$PROJECT_DIR$/herokubot.py" />
-        <option value="$PROJECT_DIR$/velha/velha.py" />
         <option value="$PROJECT_DIR$/tests/test_aventurabot.py" />
       </list>
     </option>
@@ -253,25 +251,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unnamed - 2018.01.27 at 23h 26m 19s.xml">
+    <history-entry file="Unnamed - 2018.01.28 at 01h 59m 06s.xml">
       <configuration name="Unnamed" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unnamed - 2018.01.27 at 23h 32m 32s.xml">
+    <history-entry file="Unnamed - 2018.01.28 at 01h 59m 38s.xml">
       <configuration name="Unnamed" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unnamed - 2018.01.27 at 23h 34m 59s.xml">
+    <history-entry file="Unnamed - 2018.01.28 at 02h 03m 11s.xml">
       <configuration name="Unnamed" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unnamed - 2018.01.27 at 23h 36m 01s.xml">
+    <history-entry file="Unnamed - 2018.01.28 at 02h 05m 30s.xml">
       <configuration name="Unnamed" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unnamed - 2018.01.27 at 23h 36m 28s.xml">
+    <history-entry file="Unnamed - 2018.01.28 at 02h 07m 15s.xml">
       <configuration name="Unnamed" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unnamed - 2018.01.27 at 23h 37m 58s.xml">
+    <history-entry file="Unnamed - 2018.01.28 at 02h 07m 37s.xml">
       <configuration name="Unnamed" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unnamed - 2018.01.27 at 23h 46m 44s.xml">
+    <history-entry file="Unnamed - 2018.01.28 at 02h 14m 53s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 02h 33m 50s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 02h 37m 28s.xml">
+      <configuration name="Unnamed" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unnamed - 2018.01.28 at 02h 38m 25s.xml">
       <configuration name="Unnamed" configurationId="tests" />
     </history-entry>
   </component>
@@ -302,7 +309,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -368,14 +377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -384,36 +385,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/velha/marcador.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="170">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/velha/jogador.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="48" lean-forward="false" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        <state relative-caret-position="68">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/velha/jogo_velha.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/herokubot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="112" column="81" lean-forward="true" selection-start-line="111" selection-start-column="4" selection-end-line="112" selection-end-column="81" />
+        <state relative-caret-position="121">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -428,10 +427,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/herokubot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="78" column="86" lean-forward="false" selection-start-line="78" selection-start-column="86" selection-end-line="78" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_aventurabot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="280">
+          <caret line="35" column="91" lean-forward="false" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
           <folding>
             <element signature="e#138#178#0" expanded="true" />
           </folding>

@@ -4,9 +4,15 @@ class Marcador(object):
 
     def get_texto(self):
         if self.tipo_atual == 0:
-            return 'x'
+            return 'X'
         elif self.tipo_atual == 1:
-            return '0'
+            return 'O'
+
+    def get_emoji(self):
+        if self.tipo_atual == 0:
+            return '❌'
+        elif self.tipo_atual == 1:
+            return '⭕'
 
     def __init__(self, tipo):
         self.tipo_atual = tipo

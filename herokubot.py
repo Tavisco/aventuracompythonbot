@@ -43,6 +43,7 @@ def charada(bot, update):
     else:
         obj_charada = req_charada.json()
         update.message.reply_text(obj_charada["pergunta"])
+        update.message.reply_text(obj_charada["resposta"])
 
 
 def host(bot, update):
@@ -64,53 +65,36 @@ def no_botoes(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Removendo botoes...', reply_markup=reply_markup)
 
 
-def inline_keyboard(bot, update):
-    button_list = [
-        InlineKeyboardButton(" ", callback_data='b_0_0'),
-        InlineKeyboardButton(" ", callback_data='b_0_1'),
-        InlineKeyboardButton(" ", callback_data='b_0_2'),
-        InlineKeyboardButton(" ", callback_data='b_1_0'),
-        InlineKeyboardButton(" ", callback_data='b_1_1'),
-        InlineKeyboardButton(" ", callback_data='b_1_2'),
-        InlineKeyboardButton(" ", callback_data='b_2_1'),
-        InlineKeyboardButton(" ", callback_data='b_2_2'),
-        InlineKeyboardButton(" ", callback_data='b_2_3')
-    ]
-    reply_markup = InlineKeyboardMarkup(build_menu(button_list, n_cols=3))
-    bot.send_message(chat_id=update.message.chat_id, text="É a vez do " + update.effective_user.first_name, reply_markup=reply_markup)
+def enviar_mensagem(chat_id, text, reply_to_message_id=None, reply_markup=None):
+    tg_bot.send_message(chat_id=chat_id, text=text, reply_to_message_id=reply_to_message_id, reply_markup=reply_markup)
 
 
-def build_menu(buttons,
-               n_cols,
-               header_buttons=None,
-               footer_buttons=None):
-    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
-    if header_buttons:
-        menu.insert(0, header_buttons)
-    if footer_buttons:
-        menu.append(footer_buttons)
-    return menu
-
-
-def tratador_inlinekb(bot, update):
-    query = update.callback_query
-
-    bot.edit_message_text(text="{} selecionou: {}".format(update.effective_user.first_name, query.data),
-                          chat_id=query.message.chat_id, message_id=query.message.message_id)
-
-
-def enviar_mensagem(chat_id, texto, message_id=None):
-    tg_bot.send_message(chat_id=chat_id, text=texto, reply_to_message_id=message_id)
+def editar_mensagem(chat_id, text, message_id, reply_markup):
+    tg_bot.edit_message_text(text=text,
+                             chat_id=chat_id, message_id=message_id, reply_markup=reply_markup)
 
 
 def novo_velha(bot, update):
-    velha = JogoDaVelha(update.message.chat_id, update.effective_user.id, update.effective_user.first_name, enviar_mensagem)
+    velha = JogoDaVelha(update.message.chat_id, update.effective_user.id,
+                        update.effective_user.first_name, enviar_mensagem, editar_mensagem)
     velha_handler.adicionar_jogo(velha)
 
 
 def entrar_velha(bot, update):
     velha = velha_handler.get_jogo_by_chat_id(update.message.chat_id)
     velha.add_jogador(update.effective_user.id, update.effective_user.first_name)
+
+
+def tratar_uso_inline(bot, update):
+    query = update.callback_query
+
+    # Vamos verificar se essa mensagem esta em um jogo da velha
+    velha = velha_handler.get_jogo_by_chat_id(query.message.chat_id)
+    if velha is not None:
+        # Logo o essa mensagem veio de um jogo da velha
+        velha.efetuar_jogada(update.effective_user.id, query.data, query.message.message_id)
+    else:
+        bot.send_message(chat_id=query.message.chat_id, text='N foi encontrado um jogo da velha...')
 
 
 if __name__ == "__main__":
@@ -136,10 +120,10 @@ if __name__ == "__main__":
     dp.add_handler(CommandHandler('host', host))
     dp.add_handler(CommandHandler('botoes', botoes))
     dp.add_handler(CommandHandler('noBotoes', no_botoes))
-    dp.add_handler(CommandHandler('inlinekb', inline_keyboard))
+    # dp.add_handler(CommandHandler('inlinekb', inline_keyboard))
     dp.add_handler(CommandHandler('novoVelha', novo_velha))
     dp.add_handler(CommandHandler('entrarVelha', entrar_velha))
-    dp.add_handler(CallbackQueryHandler(tratador_inlinekb))
+    dp.add_handler(CallbackQueryHandler(tratar_uso_inline))
 
     # Add noncommand handlers
     dp.add_handler(MessageHandler(Filters.text, echo))
