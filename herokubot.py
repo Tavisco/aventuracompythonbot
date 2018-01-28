@@ -5,7 +5,7 @@ import requests
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import ChatAction, ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
-from velha.velha import JogoDaVelha
+from velha.jogo_velha import JogoDaVelha
 from velha.gameshandler import VelhaHandler
 
 velha_handler = VelhaHandler()

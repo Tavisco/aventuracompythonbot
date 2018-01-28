@@ -4,7 +4,7 @@
 #
 # O Compileall no travis.yml fará o syntax checking
 
-from velha.velha import JogoDaVelha
+from velha.jogo_velha import JogoDaVelha
 from velha.gameshandler import VelhaHandler
 
 velha_handler = VelhaHandler()
