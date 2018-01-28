@@ -79,7 +79,7 @@ class JogoDaVelha(object):
 
     def atualiza_tabuleiro(self, message_id):
         reply_markup = self.montar_inline_keyboard()
-        self.edit_message(chat_id=self.chat_id, text="É a vez do " + self.jogadores[self.jogador_atual].get_nome(),
+        self.edit_message(chat_id=self.chat_id, text="É a vez de " + self.jogadores[self.jogador_atual].get_nome(),
                           message_id=message_id, reply_markup=reply_markup)
 
     def efetuar_jogada(self, user_id, posicao, message_id):
@@ -96,8 +96,6 @@ class JogoDaVelha(object):
 
         ganhou = self.verifica_ganhadores(x=coord_x, y=coord_y)
 
-        self.atualiza_tabuleiro(message_id)
-
         if ganhou:
             self.send_message(self.chat_id, jogador.get_nome() + ' venceu!')
             self.jogo_em_andamento = False
@@ -106,6 +104,7 @@ class JogoDaVelha(object):
                 self.jogador_atual = 1
             else:
                 self.jogador_atual = 0
+        self.atualiza_tabuleiro(message_id)
 
     def __init__(self, chat_id, user_id, nome, send_message, edit_message):
         self.jogadores = []
