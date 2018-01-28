@@ -11,10 +11,15 @@ branches:
 
 # command to install dependencies
 install:
-- pip install -U pytest
+- pip install -U pytest pytest-cov
+- pip install -U coveralls
 - pip install -U -r requirements.txt
 
 # command to run the tests
 script:
 - python -m compileall ./ #Using this to do a Syntax Check
 - python -m pytest tests/
+
+# Do the cover scan
+after_success:
+  - coveralls
