@@ -5,6 +5,11 @@ import requests
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import ChatAction, ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
+from velha.velha import JogoDaVelha
+from velha.gameshandler import VelhaHandler
+
+velha_handler = VelhaHandler()
+tg_bot = None
 
 
 def start(bot, update):
@@ -30,15 +35,14 @@ def piada(bot, update):
 
 def charada(bot, update):
     bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
-    reqHeaders = {'Accept': 'application/json'}
-    reqUrl = 'https://us-central1-kivson.cloudfunctions.net/charada-aleatoria'
-    reqCharada = requests.get(reqUrl, headers=reqHeaders)
-    if reqCharada.status_code != 200:
+    req_headers = {'Accept': 'application/json'}
+    req_url = 'https://us-central1-kivson.cloudfunctions.net/charada-aleatoria'
+    req_charada = requests.get(req_url, headers=req_headers)
+    if req_charada.status_code != 200:
         update.message.reply_text("Ocorreu um erro ao tentar obter a charada :c")
     else:
-        charada = reqCharada.json()
-        update.message.reply_text(charada["pergunta"])
-        update.message.reply_text(charada["resposta"])
+        obj_charada = req_charada.json()
+        update.message.reply_text(obj_charada["pergunta"])
 
 
 def host(bot, update):
@@ -95,6 +99,20 @@ def tratador_inlinekb(bot, update):
                           chat_id=query.message.chat_id, message_id=query.message.message_id)
 
 
+def enviar_mensagem(chat_id, texto, message_id=None):
+    tg_bot.send_message(chat_id=chat_id, text=texto, reply_to_message_id=message_id)
+
+
+def novo_velha(bot, update):
+    velha = JogoDaVelha(update.message.chat_id, update.effective_user.id, update.effective_user.first_name, enviar_mensagem)
+    velha_handler.adicionar_jogo(velha)
+
+
+def entrar_velha(bot, update):
+    velha = velha_handler.get_jogo_by_chat_id(update.message.chat_id)
+    velha.add_jogador(update.effective_user.id, update.effective_user.first_name)
+
+
 if __name__ == "__main__":
     # Set these variable to the appropriate values
     TOKEN = "511552531:AAHWTIk89QXtsCGyNOX7zxClY0UwO93zsVE"
@@ -108,6 +126,7 @@ if __name__ == "__main__":
     # Set up the Updater
     updater = Updater(TOKEN)
     dp = updater.dispatcher
+    tg_bot = updater.bot
 
     # Add command handlers
     dp.add_handler(CommandHandler('start', start))
@@ -118,6 +137,8 @@ if __name__ == "__main__":
     dp.add_handler(CommandHandler('botoes', botoes))
     dp.add_handler(CommandHandler('noBotoes', no_botoes))
     dp.add_handler(CommandHandler('inlinekb', inline_keyboard))
+    dp.add_handler(CommandHandler('novoVelha', novo_velha))
+    dp.add_handler(CommandHandler('entrarVelha', entrar_velha))
     dp.add_handler(CallbackQueryHandler(tratador_inlinekb))
 
     # Add noncommand handlers
