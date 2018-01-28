@@ -43,20 +43,24 @@ class JogoDaVelha(object):
 
     def verifica_ganhadores(self, x, y):
         # Verifica se ganhou na horizontal
-        horizontal = self.tabuleiro[x][0] == self.tabuleiro[x][1] == self.tabuleiro[x][2]
+        horizontal = self.tabuleiro[x][0] == self.tabuleiro[x][1] == self.tabuleiro[x][2] == self.tabuleiro[x][y]
         if horizontal:
             return True
 
         # Verifica se ganhou na vertical
-        vertical = self.tabuleiro[0][y] == self.tabuleiro[1][y] == self.tabuleiro[2][y]
+        vertical = self.tabuleiro[0][y] == self.tabuleiro[1][y] == self.tabuleiro[2][y] == self.tabuleiro[x][y]
         if vertical:
             return True
 
         # Verifica se ganhou na diagonal esquerda-direita
-        # TODO: Adicionar isso
+        diag1 = self.tabuleiro[0][0] == self.tabuleiro[1][1] == self.tabuleiro[2][2] == self.tabuleiro[x][y]
+        if diag1:
+            return True
 
         # Verifica se ganhou na diagonal direita-esquerda
-        # TODO: Adicionar isso
+        diag2 = self.tabuleiro[0][2] == self.tabuleiro[1][1] == self.tabuleiro[2][0] == self.tabuleiro[x][y]
+        if diag2:
+            return True
 
         return False
 

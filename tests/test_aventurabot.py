@@ -30,26 +30,37 @@ def editar_mensagem(chat_id, text, message_id, reply_markup=None):
     print('\n>ED>> Chat_id="' + str(chat_id) + '" Texto="' + str(text) + '" Message_id="' + str(message_id) + '"')
 
 
-def test_iniciar_jogo_velha():
-    velha = JogoDaVelha(tst_chat_id, user1_id, user1_name, enviar_mensagem, editar_mensagem)
+def iniciar_jogo_velha(uid, name):
+    velha = JogoDaVelha(tst_chat_id, uid, name, enviar_mensagem, editar_mensagem)
     velha_handler.adicionar_jogo(velha)
+
+
+def adicionar_segundo_jogador(uid, name):
+    velha = velha_handler.get_jogo_by_chat_id(tst_chat_id)
+    velha.add_jogador(uid, name)
+
+
+def test_user1_ganhar_horizontal():
+    iniciar_jogo_velha(user1_id, user1_name)
+    velha = velha_handler.get_jogo_by_chat_id(tst_chat_id)
+
     if velha.jogo_em_andamento:
+        # Verifico se o jogo iniciou com 1 jogador apenas
         raise AssertionError()
 
-
-def test_segundo_jogador_velha():
-    velha = velha_handler.get_jogo_by_chat_id(tst_chat_id)
-    velha.add_jogador(user2_id, user2_name)
+    adicionar_segundo_jogador(user2_id, user2_name)
     if not velha.jogo_em_andamento:
+        # Verifico se o jogo não iniciou com 2 jogadores
         raise AssertionError()
 
-
-def test_user1_ganhar():
-    velha = velha_handler.get_jogo_by_chat_id(tst_chat_id)
     velha.efetuar_jogada(user1_id, 'b_0_0', tst_message_id)
+    assert velha.jogo_em_andamento
     velha.efetuar_jogada(user2_id, 'b_1_0', tst_message_id)
+    assert velha.jogo_em_andamento
     velha.efetuar_jogada(user1_id, 'b_0_2', tst_message_id)
+    assert velha.jogo_em_andamento
     velha.efetuar_jogada(user2_id, 'b_1_2', tst_message_id)
+    assert velha.jogo_em_andamento
     velha.efetuar_jogada(user1_id, 'b_0_1', tst_message_id)
 
     if velha.jogo_em_andamento:
@@ -59,5 +70,35 @@ def test_user1_ganhar():
 
     if not velha.jogador_atual == 0:
         # E agora verifico se foi o user1 que realmente
+        # ganhou a partida
+        raise AssertionError()
+
+
+def test_user2_ganhar_vertical():
+    iniciar_jogo_velha(user2_id, user2_name)
+    velha = velha_handler.get_jogo_by_chat_id(tst_chat_id)
+
+    if velha.jogo_em_andamento:
+        # Verifico se o jogo iniciou com 1 jogador apenas
+        raise AssertionError()
+
+    adicionar_segundo_jogador(user1_id, user1_name)
+    if not velha.jogo_em_andamento:
+        # Verifico se o jogo não iniciou com 2 jogadores
+        raise AssertionError()
+
+    velha.efetuar_jogada(user2_id, 'b_0_0', tst_message_id)
+    velha.efetuar_jogada(user1_id, 'b_1_1', tst_message_id)
+    velha.efetuar_jogada(user2_id, 'b_1_0', tst_message_id)
+    velha.efetuar_jogada(user1_id, 'b_1_2', tst_message_id)
+    velha.efetuar_jogada(user2_id, 'b_2_0', tst_message_id)
+
+    if velha.jogo_em_andamento:
+        # user1 ganhou a partida, logo verifico se ela nao
+        # esta mais em andamento
+        raise AssertionError()
+
+    if not velha.jogador_atual == 1:
+        # E agora verifico se foi o user2 que realmente
         # ganhou a partida
         raise AssertionError()
