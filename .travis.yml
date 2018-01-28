@@ -23,3 +23,7 @@ script:
 # Do the cover scan
 after_success:
   - coveralls
+
+# Disable email notifications
+notifications:
+  email: false
