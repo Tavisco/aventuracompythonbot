@@ -4,7 +4,7 @@ import sys
 import requests
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-from telegram import ChatAction, ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import ChatAction, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from velha.jogo_velha import JogoDaVelha
 from velha.gameshandler import VelhaHandler
 
@@ -24,7 +24,7 @@ def helpme(bot, update):
     update.message.reply_text("Digite uma mensagem que eu irei repeti-la!")
 
 
-def error(bot, update, error):
+def log_error(update, error):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, error)
 
@@ -70,13 +70,27 @@ def enviar_mensagem(chat_id, text, reply_to_message_id=None, reply_markup=None):
 
 
 def editar_mensagem(chat_id, text, message_id, reply_markup):
-    tg_bot.edit_message_text(text=text,
-                             chat_id=chat_id, message_id=message_id, reply_markup=reply_markup)
+    tg_bot.edit_message_text(text=text, chat_id=chat_id, message_id=message_id, reply_markup=reply_markup)
+
+
+def terminar_jogo_velha(chat_id):
+    velha = velha_handler.get_jogo_by_chat_id(chat_id)
+    if velha is not None:
+        txt_mensagem = ''
+
+        if velha.get_index_player_ganhador() != -1:
+            txt_mensagem += velha.jogadores[velha.get_index_player_ganhador()].get_nome() + ' ganhou essa partida!'
+
+        elif velha.contagem == 9:
+            txt_mensagem += 'Deu velha! Ninguém ganhou essa partida 🤔'
+
+        velha_handler.remover_jogo(velha)
+        tg_bot.send_message(chat_id=chat_id, text=txt_mensagem)
 
 
 def novo_velha(bot, update):
     velha = JogoDaVelha(update.message.chat_id, update.effective_user.id,
-                        update.effective_user.first_name, enviar_mensagem, editar_mensagem)
+                        update.effective_user.first_name, enviar_mensagem, editar_mensagem, terminar_jogo_velha)
     velha_handler.adicionar_jogo(velha)
 
 
@@ -128,7 +142,7 @@ if __name__ == "__main__":
     dp.add_handler(MessageHandler(Filters.text, echo))
 
     # Add error handler to log all errors
-    dp.add_error_handler(error)
+    dp.add_error_handler(log_error)
 
     if len(sys.argv) > 1:
         # Running on Heroku!

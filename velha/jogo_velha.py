@@ -21,10 +21,10 @@ def build_menu(buttons,
 class JogoDaVelha(object):
 
     def get_index_player_ganhador(self):
-        if not self.jogo_em_andamento and self.jogador_atual != -1:
+        if not self.jogo_em_andamento and self.jogador_atual != -1 and not self.velha:
             return self.jogador_atual
-        else:
-            return -1
+
+        return -1
 
     def get_chat_id(self):
         return self.chat_id
@@ -81,11 +81,15 @@ class JogoDaVelha(object):
 
     def atualiza_tabuleiro(self, message_id):
         reply_markup = self.montar_inline_keyboard()
-        if self.get_index_player_ganhador() == -1:
+        if self.get_index_player_ganhador() == -1 and not self.velha:
             self.edit_message(chat_id=self.chat_id, text='É a vez de ' + self.jogadores[self.jogador_atual].get_nome(),
                               message_id=message_id, reply_markup=reply_markup)
-        else:
-            self.edit_message(chat_id=self.chat_id, text='Jogo finalizado! ' + self.jogadores[self.jogador_atual].get_nome() + ' venceu!',
+        elif self.get_index_player_ganhador() != -1:
+            self.edit_message(chat_id=self.chat_id, text='Jogo finalizado! ' +
+                                                         self.jogadores[self.jogador_atual].get_nome() + ' venceu!',
+                              message_id=message_id, reply_markup=reply_markup)
+        elif self.velha:
+            self.edit_message(chat_id=self.chat_id, text='Deu velha!',
                               message_id=message_id, reply_markup=reply_markup)
 
     def efetuar_jogada(self, user_id, posicao, message_id):
@@ -93,6 +97,7 @@ class JogoDaVelha(object):
             self.send_message(self.chat_id, 'Jogador incorreto!')
             return
 
+        self.contagem += 1
         jogador = self.jogadores[self.jogador_atual]
         coord_posicao = posicao.split('_')
         coord_x = int(coord_posicao[1])
@@ -103,23 +108,32 @@ class JogoDaVelha(object):
         ganhou = self.verifica_ganhadores(x=coord_x, y=coord_y)
 
         if ganhou:
-            self.send_message(self.chat_id, jogador.get_nome() + ' venceu!')
             self.jogo_em_andamento = False
+            self.terminar_jogo(chat_id=self.chat_id)
         else:
             if self.jogador_atual == 0:
                 self.jogador_atual = 1
             else:
                 self.jogador_atual = 0
+
+        if self.contagem == 9:
+            self.jogo_em_andamento = False
+            self.velha = True
+            self.terminar_jogo(chat_id=self.chat_id)
+
         self.atualiza_tabuleiro(message_id)
 
-    def __init__(self, chat_id, user_id, nome, send_message, edit_message):
+    def __init__(self, chat_id, user_id, nome, send_message, edit_message, terminar_jogo):
         self.jogadores = []
         self.tabuleiro = np.full((3, 3), " ")
         self.chat_id = chat_id
         self.jogador_atual = -1
+        self.contagem = 0
         self.jogo_em_andamento = False
+        self.velha = False
         self.send_message = send_message
         self.edit_message = edit_message
+        self.terminar_jogo = terminar_jogo
         self.logger = logging.getLogger(__name__)
 
         self.add_jogador(user_id, nome)
