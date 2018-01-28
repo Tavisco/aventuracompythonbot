@@ -6,9 +6,12 @@ class VelhaHandler(object):
 
     def get_jogo_by_chat_id(self, chat_id):
         for jogo in self.ListaDeJogosVelha:
-            if jogo.get_chat_id() == chat_id:
+            if jogo.get_chat_id() == int(chat_id):
                 return jogo
         return None
+
+    def remover_jogo(self, jogo):
+        self.ListaDeJogosVelha.remove(jogo)
 
     def __init__(self):
         self.ListaDeJogosVelha = []

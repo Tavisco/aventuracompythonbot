@@ -20,6 +20,12 @@ def build_menu(buttons,
 
 class JogoDaVelha(object):
 
+    def get_index_player_ganhador(self):
+        if not self.jogo_em_andamento and self.jogador_atual != -1:
+            return self.jogador_atual
+        else:
+            return -1
+
     def get_chat_id(self):
         return self.chat_id
 
@@ -75,8 +81,11 @@ class JogoDaVelha(object):
 
     def atualiza_tabuleiro(self, message_id):
         reply_markup = self.montar_inline_keyboard()
-        if self.jogo_em_andamento:
-            self.edit_message(chat_id=self.chat_id, text="É a vez de " + self.jogadores[self.jogador_atual].get_nome(),
+        if self.get_index_player_ganhador() == -1:
+            self.edit_message(chat_id=self.chat_id, text='É a vez de ' + self.jogadores[self.jogador_atual].get_nome(),
+                              message_id=message_id, reply_markup=reply_markup)
+        else:
+            self.edit_message(chat_id=self.chat_id, text='Jogo finalizado! ' + self.jogadores[self.jogador_atual].get_nome() + ' venceu!',
                               message_id=message_id, reply_markup=reply_markup)
 
     def efetuar_jogada(self, user_id, posicao, message_id):

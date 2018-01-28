@@ -120,7 +120,6 @@ if __name__ == "__main__":
     dp.add_handler(CommandHandler('host', host))
     dp.add_handler(CommandHandler('botoes', botoes))
     dp.add_handler(CommandHandler('noBotoes', no_botoes))
-    # dp.add_handler(CommandHandler('inlinekb', inline_keyboard))
     dp.add_handler(CommandHandler('novoVelha', novo_velha))
     dp.add_handler(CommandHandler('entrarVelha', entrar_velha))
     dp.add_handler(CallbackQueryHandler(tratar_uso_inline))
