@@ -28,7 +28,7 @@ def terminar_jogo_velha(chat_id):
         txt_mensagem = ''
 
         if velha.get_index_player_ganhador() != -1:
-            txt_mensagem += velha.jogadores[velha.get_index_player_ganhador()].get_nome() + ' ganhou essa partida!'
+            txt_mensagem += velha.obter_jogador(velha.get_index_player_ganhador()).nome + ' ganhou essa partida!'
 
         elif velha.contagem == 9:
             txt_mensagem += 'Deu velha!'

@@ -20,6 +20,9 @@ def build_menu(buttons,
 
 class JogoDaVelha(object):
 
+    def obter_jogador(self, index) -> Jogador:
+        return self.jogadores[index]
+
     def get_index_player_ganhador(self):
         if not self.jogo_em_andamento and self.jogador_atual != -1 and not self.velha:
             return self.jogador_atual
@@ -29,6 +32,13 @@ class JogoDaVelha(object):
     def get_chat_id(self):
         return self.chat_id
 
+    def jogador_ja_existe(self, user_id):
+        for jogador in self.jogadores:
+            if jogador.user_id == user_id:
+                return True
+
+        return False
+
     def add_jogador(self, user_id, nome):
         marcador = 0
         if len(self.jogadores) == 1:
@@ -36,7 +46,7 @@ class JogoDaVelha(object):
         jogador = Jogador(user_id, nome, marcador)
         self.jogadores.append(jogador)
 
-        texto = jogador.get_nome() + ' joga como ' + jogador.get_marcador().get_texto()
+        texto = jogador.nome + ' joga como ' + jogador.marcador.get_texto()
         self.send_message(self.chat_id, texto)
 
         if len(self.jogadores) == 2:
@@ -44,7 +54,7 @@ class JogoDaVelha(object):
             self.jogador_atual = 0
             self.jogo_em_andamento = True
             reply_markup = self.montar_inline_keyboard()
-            self.send_message(chat_id=self.chat_id, text="É a vez de " + self.jogadores[self.jogador_atual].get_nome(),
+            self.send_message(chat_id=self.chat_id, text="É a vez de " + self.obter_jogador(self.jogador_atual).nome,
                               reply_markup=reply_markup)
 
     def verifica_ganhadores(self, x, y):
@@ -82,28 +92,29 @@ class JogoDaVelha(object):
     def atualiza_tabuleiro(self, message_id):
         reply_markup = self.montar_inline_keyboard()
         if self.get_index_player_ganhador() == -1 and not self.velha:
-            self.edit_message(chat_id=self.chat_id, text='É a vez de ' + self.jogadores[self.jogador_atual].get_nome(),
+            self.edit_message(chat_id=self.chat_id, text='É a vez de ' + self.obter_jogador(self.jogador_atual).nome,
                               message_id=message_id, reply_markup=reply_markup)
         elif self.get_index_player_ganhador() != -1:
             self.edit_message(chat_id=self.chat_id, text='Jogo finalizado! ' +
-                                                         self.jogadores[self.jogador_atual].get_nome() + ' venceu!',
+                                                         self.obter_jogador(self.jogador_atual).nome + ' venceu!',
                               message_id=message_id, reply_markup=reply_markup)
         elif self.velha:
             self.edit_message(chat_id=self.chat_id, text='Deu velha!',
                               message_id=message_id, reply_markup=reply_markup)
 
     def efetuar_jogada(self, user_id, posicao, message_id):
-        if self.jogadores[self.jogador_atual].get_user_id() != user_id:
+        jogador = self.jogadores[self.jogador_atual]
+        if jogador.user_id != user_id:
             self.send_message(self.chat_id, 'Jogador incorreto!')
             return
 
         self.contagem += 1
-        jogador = self.jogadores[self.jogador_atual]
+
         coord_posicao = posicao.split('_')
         coord_x = int(coord_posicao[1])
         coord_y = int(coord_posicao[2])
 
-        self.tabuleiro[coord_x][coord_y] = jogador.get_marcador().get_texto()
+        self.tabuleiro[coord_x][coord_y] = jogador.marcador.get_texto()
 
         ganhou = self.verifica_ganhadores(x=coord_x, y=coord_y)
 
@@ -139,3 +150,5 @@ class JogoDaVelha(object):
         self.add_jogador(user_id, nome)
         self.send_message(self.chat_id, 'Jogo da velha iniciado! Aguardando próximo jogador '
                                         '(digite /entrarVelha para entrar)')
+
+

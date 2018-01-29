@@ -16,10 +16,6 @@ def start(bot, update):
     update.effective_message.reply_text("Hi!")
 
 
-def echo(bot, update):
-    update.effective_message.reply_text(update.effective_message.text)
-
-
 def helpme(bot, update):
     update.message.reply_text("Digite uma mensagem que eu irei repeti-la!")
 
@@ -79,7 +75,7 @@ def terminar_jogo_velha(chat_id):
         txt_mensagem = ''
 
         if velha.get_index_player_ganhador() != -1:
-            txt_mensagem += velha.jogadores[velha.get_index_player_ganhador()].get_nome() + ' ganhou essa partida!'
+            txt_mensagem += velha.obter_jogador(velha.get_index_player_ganhador()).nome + ' ganhou essa partida!'
 
         elif velha.contagem == 9:
             txt_mensagem += 'Deu velha! Ninguém ganhou essa partida 🤔'
@@ -89,14 +85,28 @@ def terminar_jogo_velha(chat_id):
 
 
 def novo_velha(bot, update):
-    velha = JogoDaVelha(update.message.chat_id, update.effective_user.id,
-                        update.effective_user.first_name, enviar_mensagem, editar_mensagem, terminar_jogo_velha)
-    velha_handler.adicionar_jogo(velha)
+    if velha_handler.get_jogo_by_chat_id(update.message.chat_id) is None:
+        velha = JogoDaVelha(update.message.chat_id, update.effective_user.id,
+                            update.effective_user.first_name, enviar_mensagem, editar_mensagem, terminar_jogo_velha)
+        velha_handler.adicionar_jogo(velha)
+    else:
+        update.message.reply_text('Já existe uma partida em andamento nesse chat!')
 
 
 def entrar_velha(bot, update):
     velha = velha_handler.get_jogo_by_chat_id(update.message.chat_id)
-    velha.add_jogador(update.effective_user.id, update.effective_user.first_name)
+    if velha is not None:
+        if velha.jogador_ja_existe(update.effective_user.id):
+            update.message.reply_text('Você já está no jogo!')
+            return
+
+        if len(velha.jogadores) == 2:
+            update.message.reply_text('Já existem dois jogadores na partida!')
+            return
+
+        velha.add_jogador(update.effective_user.id, update.effective_user.first_name)
+    else:
+        update.message.reply_text('Não há nenhuma partida em andamento nesse chat! Inicie uma com /novoVelha')
 
 
 def tratar_uso_inline(bot, update):
@@ -137,9 +147,6 @@ if __name__ == "__main__":
     dp.add_handler(CommandHandler('novoVelha', novo_velha))
     dp.add_handler(CommandHandler('entrarVelha', entrar_velha))
     dp.add_handler(CallbackQueryHandler(tratar_uso_inline))
-
-    # Add noncommand handlers
-    dp.add_handler(MessageHandler(Filters.text, echo))
 
     # Add error handler to log all errors
     dp.add_error_handler(log_error)
