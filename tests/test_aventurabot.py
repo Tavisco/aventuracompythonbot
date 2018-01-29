@@ -175,3 +175,13 @@ def test_velha():
     if velha.contagem != 9:
         # a contagem DEVE ser 9
         raise AssertionError()
+
+
+def test_mesmo_player_2x():
+    iniciar_jogo_velha(user1_id, user1_name)
+    velha = velha_handler.get_jogo_by_chat_id(tst_chat_id)
+    if not len(velha.jogadores) == 1:
+        raise AssertionError()
+    # TODO: Terminar esse teste
+
+

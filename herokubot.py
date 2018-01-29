@@ -24,7 +24,7 @@ def helpme(bot, update):
     update.message.reply_text("Digite uma mensagem que eu irei repeti-la!")
 
 
-def log_error(update, error):
+def log_error(bot, update, error):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, error)
 
